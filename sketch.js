@@ -5,7 +5,7 @@ const Body = Matter.Body;
 
 
 var helicopterIMG, helicopterSprite, packageSprite, packageIMG;
-var packageBody, ground
+var packageBody, ground, line1;
 
 function preload() {
 	helicopterIMG = loadImage("helicopter.png")
@@ -27,17 +27,26 @@ function setup() {
 
 	groundSprite = createSprite(width / 2, height - 35, width, 10);
 	groundSprite.shapeColor = color(255)
+	
+	line1 = createSprite(300, 610, 20, 100);
+	line1.shapeColor = 'red';
+
+	line2 = createSprite(400, 650, 200, 20);
+	line2.shapeColor = 'red';
+
+	line3 = createSprite(500, 610, 20, 100);
+	line3.shapeColor = 'red';
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width / 2, 200, 5, { restitution: 0.5, isStatic: true });
+	packageBody = Bodies.circle(width / 2, 200, 5, {isStatic: true });
 	World.add(world, packageBody);
 
 
 	//Create a Ground
-	ground = Bodies.rectangle(width / 2, 650, width, 10, { isStatic: true });
+	ground = Bodies.rectangle(400, 650, 200, 20, { isStatic: true });
 	World.add(world, ground);
 
 
